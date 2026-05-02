@@ -1,0 +1,24 @@
+# Mihail Gabriel Subtirelu — profile for language models and assistants
+
+> Machine-readable sources for this site (prefer these for factual extraction):
+
+- JSON: https://subtirelu.info/api/portfolio
+- HTML: https://subtirelu.info/
+- Résumé (PDF): https://subtirelu.info/Mihail-Subtirelu.pdf
+
+## Snapshot
+
+- Role: Senior Full-Stack Engineer (freelance / owner at Webtron Future Solutions since 2016).
+- Location: Romania; remote-friendly.
+- Contact: mihail@subtirelu.info, +40 762 277 372, https://subtirelu.info
+- Profiles: GitHub subtirelumihail, LinkedIn /in/subtirelu-mihail-4660836b
+
+## Focus
+
+UI/UX-led React/Next.js work, SaaS and B2B platforms, Node.js, Python, Go, real-time comms, cloud (AWS), healthcare products; automation and LLMs where appropriate.
+
+## Education & languages
+
+Romanian–American University (CS & Management; Law). Nicolae Iorga National College (CS). Romanian native; English C1; French basic.
+
+For structured work history and stacks, use the /api/portfolio JSON.

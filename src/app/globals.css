@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+  --bg: oklch(99% 0.009 250);
+  --surface: oklch(100% 0.006 250);
+  --fg: oklch(26% 0.028 260);
+  --fg-muted: oklch(42% 0.04 260);
+  --fg-soft: oklch(52% 0.035 260);
+  --accent: oklch(50% 0.12 254);
+  --accent-hover: oklch(44% 0.14 254);
+  --accent-ring: oklch(78% 0.08 254);
+  --accent-surface: oklch(96% 0.04 254);
+  --border: oklch(90% 0.02 250);
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-soft: var(--fg-soft);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ring: var(--accent-ring);
+  --color-accent-surface: var(--accent-surface);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --font-display: var(--font-kumbh);
+  --font-body: var(--font-sans);
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enter {
+  animation: enter 0.55s var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-ring);
+  outline-offset: 3px;
+}
