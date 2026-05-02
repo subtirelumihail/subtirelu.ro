@@ -6,37 +6,80 @@ import { useEffect, useState } from "react";
 import { QuickContactActions } from "@/components/quick-contact-actions";
 import { person } from "@/lib/site-config";
 
+/** Matches Tailwind `max-md` (< 768px). */
+const MOBILE_LAYOUT_MEDIA_QUERY = "(max-width: 767px)";
+
+const JOB_TITLE_SENTINEL_ID = "hero-job-title-end";
 const RESUME_DOWNLOAD_SENTINEL_ID = "hero-resume-download-end";
 
 export function ScrollProfileHeader() {
-  const [isPastResumeDownload, setIsPastResumeDownload] = useState(false);
+  const [pastJobTitle, setPastJobTitle] = useState(false);
+  const [pastResumeDownload, setPastResumeDownload] = useState(false);
+  const [isMobileLayout, setIsMobileLayout] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const el = document.getElementById(RESUME_DOWNLOAD_SENTINEL_ID);
-    if (!el) return;
+    const mq = window.matchMedia(MOBILE_LAYOUT_MEDIA_QUERY);
+    queueMicrotask(() => {
+      setIsMobileLayout(mq.matches);
+    });
 
-    const observer = new IntersectionObserver(
+    function handleMqChange() {
+      setIsMobileLayout(mq.matches);
+    }
+
+    mq.addEventListener("change", handleMqChange);
+
+    const titleEl = document.getElementById(JOB_TITLE_SENTINEL_ID);
+    const resumeEl = document.getElementById(RESUME_DOWNLOAD_SENTINEL_ID);
+    if (!titleEl || !resumeEl) {
+      mq.removeEventListener("change", handleMqChange);
+      return;
+    }
+
+    const observerTitle = new IntersectionObserver(
       ([entry]) => {
-        const scrolledPastResume =
-          !entry.isIntersecting && entry.boundingClientRect.top < 0;
-        setIsPastResumeDownload(scrolledPastResume);
+        setPastJobTitle(
+          !entry.isIntersecting && entry.boundingClientRect.top < 0,
+        );
       },
       { root: null, rootMargin: "0px", threshold: 0 },
     );
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    const observerResume = new IntersectionObserver(
+      ([entry]) => {
+        setPastResumeDownload(
+          !entry.isIntersecting && entry.boundingClientRect.top < 0,
+        );
+      },
+      { root: null, rootMargin: "0px", threshold: 0 },
+    );
+
+    observerTitle.observe(titleEl);
+    observerResume.observe(resumeEl);
+
+    return () => {
+      mq.removeEventListener("change", handleMqChange);
+      observerTitle.disconnect();
+      observerResume.disconnect();
+    };
   }, []);
+
+  const showStickyHeader =
+    isMobileLayout === null
+      ? false
+      : isMobileLayout
+        ? pastJobTitle
+        : pastResumeDownload;
 
   return (
     <div
       role="region"
       aria-label="Profile summary and quick contact"
-      aria-hidden={!isPastResumeDownload}
+      aria-hidden={!showStickyHeader}
       className={
         "border-border supports-[backdrop-filter]:bg-background/80 fixed inset-x-0 top-0 z-40 border-b bg-background/95 backdrop-blur-sm " +
         "transition-[opacity,transform] duration-300 ease-[var(--ease-out)] motion-reduce:transition-none " +
-        (isPastResumeDownload
+        (showStickyHeader
           ? "translate-y-0 opacity-100"
           : "pointer-events-none -translate-y-full opacity-0")
       }

@@ -28,6 +28,11 @@ export function HeroIdentity() {
         <p className="text-accent font-display mt-2 text-lg font-medium">
           {person.jobTitle}
         </p>
+        <div
+          id="hero-job-title-end"
+          aria-hidden
+          className="pointer-events-none h-px w-full shrink-0 opacity-0"
+        />
         <p className="text-muted mx-auto mt-4 max-w-[42rem] text-wrap text-[1.05rem] leading-relaxed lg:text-pretty lg:mx-0 lg:max-w-[48rem]">
           {person.tagline}
         </p>
