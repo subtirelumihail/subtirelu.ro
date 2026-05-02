@@ -1,8 +1,8 @@
-import { BackgroundRoles } from "@/components/portfolio/background-roles";
-import { FeaturedRoleCard } from "@/components/portfolio/featured-role-card";
-import { PortfolioHero } from "@/components/portfolio/hero";
-import { Section } from "@/components/portfolio/section";
-import { SkillMatrix } from "@/components/portfolio/skill-matrix";
+import { BackgroundRoles } from "@/components/background-roles";
+import { FeaturedRoleCard } from "@/components/featured-role-card";
+import PortfolioHero from "@/components/hero";
+import { Section } from "@/components/section";
+import { SkillMatrix } from "@/components/skill-matrix";
 import {
   backgroundRoles,
   earlierCareerRoles,
@@ -62,7 +62,6 @@ export default function Home() {
           <BackgroundRoles
             roles={backgroundRoles}
             earlierRoles={earlierCareerRoles}
-            linkedinHref={person.linkedin}
           />
         </Section>
         <Section id="skills" eyebrow="Stack" title="My skills" delayMs={220}>

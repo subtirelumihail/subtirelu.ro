@@ -12,9 +12,6 @@ import {
 } from "@/content/portfolio";
 import { person, resumePdfUrl, sameAs, siteUrl } from "@/lib/site-config";
 
-/**
- * Machine-readable portfolio snapshot for crawlers, assistants, and MCP clients.
- */
 export async function GET() {
   const body = {
     version: 1,

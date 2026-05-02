@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Kumbh_Sans } from "next/font/google";
 
-import { PersonJsonLd } from "@/components/portfolio/person-json-ld";
+import { PersonJsonLd } from "@/components/person-json-ld";
 import { person, siteUrl } from "@/lib/site-config";
 
 import "./globals.css";

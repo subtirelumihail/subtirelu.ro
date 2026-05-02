@@ -154,7 +154,6 @@ export const backgroundRoles: BackgroundRole[] = [
   },
 ];
 
-/** Additional roles from CV (2011–2016): products, agency, streaming, and research platforms. */
 export const earlierCareerRoles: BackgroundRole[] = [
   {
     id: "wowapp",

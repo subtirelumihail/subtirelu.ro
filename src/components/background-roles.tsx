@@ -62,11 +62,9 @@ function BackgroundRoleCard({
 export function BackgroundRoles({
   roles,
   earlierRoles,
-  linkedinHref,
 }: {
   roles: BackgroundRole[];
   earlierRoles: BackgroundRole[];
-  linkedinHref: string;
 }) {
   return (
     <div className="flex flex-col gap-8">
