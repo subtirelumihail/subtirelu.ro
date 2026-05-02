@@ -2,9 +2,13 @@
 
 Personal site that uses Next.js with the App Router.
 
+## Development
 ```bash
 npm install
 npm run dev
 ```
 
-`npm run build` — production build.
+## Production
+```bash
+npm run build`
+```
