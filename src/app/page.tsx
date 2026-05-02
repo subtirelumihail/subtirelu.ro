@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <main
       id="profile"
-      className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-10 sm:py-20 lg:px-14 lg:py-24"
+      className="mx-auto w-full max-w-7xl px-5 pt-14 pb-28 sm:px-10 sm:pt-20 sm:pb-28 md:pb-16 lg:px-14 lg:py-24"
     >
       <PortfolioHero delayMs={0} />
       <div className="mt-16 space-y-16 sm:mt-20 sm:space-y-20 lg:mt-24 lg:space-y-24">

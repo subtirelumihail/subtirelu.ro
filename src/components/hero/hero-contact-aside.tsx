@@ -49,10 +49,15 @@ export function HeroContactAside() {
       <a
         href={resumePdfPath}
         download
-        className="font-display bg-accent text-white hover:bg-accent-hover focus-visible:ring-accent inline-flex min-h-11 w-full items-center justify-center rounded-full px-6 text-sm font-semibold shadow-[0_1px_0_0_rgba(15,23,42,0.08)] transition-[background-color,box-shadow,transform] duration-200 ease-out hover:shadow-[0_6px_20px_-8px_var(--accent)] active:scale-[0.99] motion-reduce:transform-none"
+        className="font-display bg-accent text-white hover:bg-accent-hover focus-visible:ring-accent hidden min-h-11 w-full items-center justify-center rounded-full px-6 text-sm font-semibold shadow-[0_1px_0_0_rgba(15,23,42,0.08)] transition-[background-color,box-shadow,transform] duration-200 ease-out hover:shadow-[0_6px_20px_-8px_var(--accent)] active:scale-[0.99] motion-reduce:transform-none md:inline-flex"
       >
         Download résumé (PDF)
       </a>
+      <div
+        id="hero-resume-download-end"
+        aria-hidden
+        className="pointer-events-none h-px w-full shrink-0 opacity-0"
+      />
     </aside>
   );
 }

@@ -28,7 +28,7 @@ export function HeroIdentity() {
         <p className="text-accent font-display mt-2 text-lg font-medium">
           {person.jobTitle}
         </p>
-        <p className="text-muted mx-auto mt-4 max-w-[42rem] text-pretty text-[1.05rem] leading-relaxed lg:mx-0 lg:max-w-[48rem]">
+        <p className="text-muted mx-auto mt-4 max-w-[42rem] text-wrap text-[1.05rem] leading-relaxed lg:text-pretty lg:mx-0 lg:max-w-[48rem]">
           {person.tagline}
         </p>
         <ProfileIconLinks navClassName="mt-5 flex flex-wrap justify-center gap-3 lg:mt-6 lg:justify-start" />

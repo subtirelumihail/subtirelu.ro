@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Kumbh_Sans } from "next/font/google";
 
+import { MobileContactDock } from "@/components/mobile-contact-dock";
+import { ScrollProfileHeader } from "@/components/scroll-profile-header";
 import { PersonJsonLd } from "@/components/person-json-ld";
 import { person, siteUrl } from "@/lib/site-config";
 
@@ -23,6 +25,34 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      {
+        url: "/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
+    shortcut: "/favicon.ico",
+  },
   title: {
     default: documentTitle,
     template: `%s · ${person.name}`,
@@ -105,7 +135,9 @@ export default function RootLayout({
     >
       <body className="text-foreground min-h-full bg-background">
         <PersonJsonLd />
+        <ScrollProfileHeader />
         {children}
+        <MobileContactDock />
       </body>
     </html>
   );
