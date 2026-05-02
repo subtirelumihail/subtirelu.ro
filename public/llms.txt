@@ -4,7 +4,7 @@
 
 - JSON: https://subtirelu.info/api/portfolio
 - HTML: https://subtirelu.info/
-- Résumé (PDF): https://subtirelu.info/Mihail-Subtirelu.pdf
+- Resume (PDF): https://subtirelu.info/Mihail-Subtirelu.pdf
 
 ## Snapshot
 

@@ -40,7 +40,7 @@ export function QuickContactActions({
       </a>
 
       <a href={resumePdfPath} download className={resumeClass}>
-        Download résumé (PDF)
+        Download resume (PDF)
       </a>
 
       <a
