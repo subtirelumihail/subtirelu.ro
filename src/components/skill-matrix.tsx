@@ -2,11 +2,29 @@
 
 import { useMemo, useState } from "react";
 
-import { skillGroups } from "@/content/portfolio";
+import { skillGroups, spotlightSkills } from "@/content/portfolio";
+
+const spotlightSkillSet = new Set<string>(spotlightSkills);
+
+function SpotlightStarIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+    >
+      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+    </svg>
+  );
+}
 
 function normalizeQuery(value: string) {
   return value.trim().toLowerCase();
 }
+
+const skillPillClass =
+  "inline-flex items-center gap-1 rounded-lg border border-border bg-surface px-2.5 py-1 text-xs font-medium text-muted transition-[background-color,box-shadow,border-color] duration-200 ease-out";
 
 export function SkillMatrix() {
   const [query, setQuery] = useState("");
@@ -51,13 +69,19 @@ export function SkillMatrix() {
               {group.name}
             </h3>
             <ul className="mt-3 flex flex-wrap gap-2">
-              {group.items.map((item) => (
-                <li key={item}>
-                  <span className="border-border text-muted inline-flex rounded-lg border bg-surface px-2.5 py-1 text-xs font-medium">
-                    {item}
-                  </span>
-                </li>
-              ))}
+              {group.items.map((item) => {
+                const isSpotlight = spotlightSkillSet.has(item);
+                return (
+                  <li key={item}>
+                    <span className={skillPillClass}>
+                      {isSpotlight ? (
+                        <SpotlightStarIcon className="size-3 shrink-0 text-amber-500" />
+                      ) : null}
+                      {item}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}

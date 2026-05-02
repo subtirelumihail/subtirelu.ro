@@ -3,6 +3,7 @@ import { FeaturedRoleCard } from "@/components/featured-role-card";
 import PortfolioHero from "@/components/hero";
 import { Section } from "@/components/section";
 import { SkillMatrix } from "@/components/skill-matrix";
+import { SiteFooter } from "@/components/site-footer";
 import {
   backgroundRoles,
   earlierCareerRoles,
@@ -10,26 +11,6 @@ import {
   featuredRoles,
   languages,
 } from "@/content/portfolio";
-import { person, siteUrl } from "@/lib/site-config";
-
-function SiteFooter() {
-  return (
-    <footer
-      className="animate-enter text-soft border-border mt-20 border-t pt-10 text-center text-sm lg:mt-28"
-      style={{ animationDelay: "420ms" }}
-    >
-      <p>
-        © {new Date().getFullYear()} {person.name}.{" "}
-        <a
-          href={siteUrl}
-          className="text-accent hover:text-accent-hover underline-offset-4 transition-colors hover:underline"
-        >
-          {siteUrl.replace(/^https?:\/\//, "")}
-        </a>
-      </p>
-    </footer>
-  );
-}
 
 export default function Home() {
   return (

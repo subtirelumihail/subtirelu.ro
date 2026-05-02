@@ -326,6 +326,18 @@ export const earlierCareerRoles: BackgroundRole[] = [
   },
 ];
 
+/** Shown with emphasis in the skills matrix UI. */
+export const spotlightSkills = [
+  "TypeScript",
+  "JavaScript",
+  "React",
+  "Next.js",
+  "Python",
+  "PostgreSQL",
+  "OpenAI",
+  "Gemini",
+] as const;
+
 export const skillGroups = [
   {
     name: "Frontend",
@@ -365,7 +377,15 @@ export const skillGroups = [
   },
   {
     name: "Integrations",
-    items: ["Stripe", "Twilio", "LiveKit", "OpenAI", "ElevenLabs", "Retell"],
+    items: [
+      "Stripe",
+      "Twilio",
+      "LiveKit",
+      "OpenAI",
+      "Gemini",
+      "ElevenLabs",
+      "Retell",
+    ],
   },
 ] as const;
 
